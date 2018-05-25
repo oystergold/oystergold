@@ -1,13 +1,19 @@
-package com.itoystergold.controller;
+package com.itoystergold.controller.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.itoystergold.service.DemoUserService;
-
 @Controller
 public class UserController {
+	
+	@RequestMapping("tologin")
+	public String toLogin(String username,String password){
+		if (StringUtils.isEmpty(username)||StringUtils.isEmpty(password)) {
+			return "login/login";
+		}
+		return "home/fmain";
+	}
 	
 	
 	@RequestMapping("/user")

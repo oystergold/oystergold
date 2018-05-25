@@ -63,7 +63,7 @@
 			$(function(){
 				$(window).resize();
 				$("#loginBtn").click(function(){
-				   $("#login_main").attr("action","loginAction_login");
+				   $("#login_main").attr("action","tologin");
                    $("#login_main").submit(function(){
  						return true;
                    });

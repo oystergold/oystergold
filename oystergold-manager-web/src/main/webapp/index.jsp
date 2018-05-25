@@ -3,7 +3,7 @@
 <head>
 </head>
 <script type="text/javascript">
-     window.location.href = "loginAction_login";		//javascript页面跳转
+     window.location.href = "tologin";		//javascript页面跳转
 </script>
 <body>
 </body>

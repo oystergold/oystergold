@@ -15,7 +15,7 @@
 	<mvc:annotation-driven />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="prefix" value="/WEB-INF/pages/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!-- 定义文件上传解析器 -->
@@ -30,9 +30,14 @@
 	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
-	<mvc:resources location="/avatars/" mapping="/avatars/**"></mvc:resources>
-	<mvc:resources location="/font/" mapping="/font/**"></mvc:resources>
 	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
+	<mvc:resources location="/plugins/" mapping="/plugins/**"></mvc:resources>
+	<mvc:resources location="/make/" mapping="/make/**"></mvc:resources>
+	<mvc:resources location="/skin/" mapping="/skin/**"></mvc:resources>
+	<mvc:resources location="/stat/" mapping="/stat/**"></mvc:resources>
+	<mvc:resources location="/ufiles/" mapping="/ufiles/**"></mvc:resources>
+	<mvc:resources location="/validator/" mapping="/validator/**"></mvc:resources>
+	<mvc:resources location="/components/" mapping="/components/**"></mvc:resources>
 	<dubbo:application name="oystergold-manager"/>
 	<dubbo:registry address="${zookeeper.ip}" protocol="zookeeper"></dubbo:registry>
 	<dubbo:reference interface="com.itoystergold.service.DemoUserService" id="demoUserService"></dubbo:reference>
