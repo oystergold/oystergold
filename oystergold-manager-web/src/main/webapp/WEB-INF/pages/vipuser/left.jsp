@@ -20,16 +20,15 @@
         <div class="panel">
         <div class="panel_icon"><img src="${ctx}/skin/default/images/icon/user1_lock.png"/></div>
         <div class="panel-header">
-        <div class="panel-title">人事管理</div>
+        <div class="panel-title">会员中心</div>
         <div class="panel-content">
-		<%--  
+		 
 		<ul>
-			<li><a href="${ctx}/sysadmin/deptAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">部门管理</a></li>
-			<li><a href="${ctx}/sysadmin/userAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">用户管理</a></li>
-			<li><a href="${ctx}/sysadmin/roleAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">角色管理</a></li>
-			<li><a href="${ctx}/sysadmin/moduleAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">模块管理</a></li>
-			<li><a href="${ctx}/sysadmin/moduleAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">XX管理</a></li>
-		</ul>  --%> 
+			<li><a href="${ctx}/sysadmin/vipuserAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">查看会员</a></li>
+			<li><a href="${ctx}/sysadmin/vipPackageAmtAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">会员钱包</a></li>
+			<li><a href="${ctx}/sysadmin/vipuserRelationAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">会员关系圈</a></li>
+			<li><a href="${ctx}/sysadmin/moduleAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">股权管理</a></li>
+		</ul>  
 		<%-- 入动态的菜单生成--%> 
 			<%@include file="../leftmenu.jsp" %>
 			

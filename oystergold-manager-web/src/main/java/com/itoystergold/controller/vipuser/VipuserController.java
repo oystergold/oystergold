@@ -7,10 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class VipuserController {
 	
 	
-	@RequestMapping("")
-	public String selectUser() {
+	@RequestMapping("vipuserAction_toleft")
+	public String left(String moduleName){
+		System.out.println(moduleName);
 		
-		/*System.out.println(demoUserService.selectUser());*/
-		return "index";
+		return  moduleName+"/left";
+	}
+	
+	@RequestMapping("vipuserAction_tomain")
+	public String main(String moduleName){
+		System.out.println(moduleName);
+		return  moduleName+"/main";
 	}
 }
