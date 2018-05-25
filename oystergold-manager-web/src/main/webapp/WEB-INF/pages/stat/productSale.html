@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>My first chart using FusionCharts Suite XT</title>
+<script type="text/javascript" src="/components/fusioncharts/js/fusioncharts.js"></script>
+<script type="text/javascript" src="/components/fusioncharts/js/themes/fusioncharts.theme.fint.js"></script>
+<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+FusionCharts.ready(function () {
+	$.ajax({
+		url:"/stat/statChartAction_productSaleajax2",
+		type : "get",
+		dataType : "json",
+		success : function(chartData){
+			readyChartDate(chartData);
+		}
+	});
+});
+
+
+
+
+  function readyChartDate(chartData){
+	  
+	  
+	  
+    var revenueChart = new FusionCharts({
+        "type": "column3d",//column2d  line
+        "renderAt": "chartContainer",
+        "width": "800",
+        "height": "500",
+        "dataFormat": "json",
+        "dataSource":  {
+          "chart": {
+            "caption": "产品销售统计图",
+            "subCaption": "伦哥出品,必属精品",
+            "xAxisName": "产品",
+            "yAxisName": "销售额",
+            "theme": "fint"
+         },
+         "data": chartData
+      }
+
+  });
+revenueChart.render();
+}
+</script>
+</head>
+<body>
+  <div id="chartContainer"></div>
+</body>
+</html>

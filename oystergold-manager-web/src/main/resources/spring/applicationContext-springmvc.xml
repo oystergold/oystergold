@@ -27,12 +27,12 @@
 		<property name="maxUploadSize" value="5242880"></property>
 	</bean>
 	<bean class="com.itoystergold.exception.SystemException"></bean>
-	<mvc:resources location="/assets/css/" mapping="/assets/css/**"></mvc:resources>
-	<mvc:resources location="/assets/js/" mapping="/assets/js/**"></mvc:resources>
-	<mvc:resources location="/assets/images/" mapping="/assets/images/**"></mvc:resources>
-	<mvc:resources location="/assets/avatars/" mapping="/assets/avatars/**"></mvc:resources>
-	<mvc:resources location="/assets/font/" mapping="/assets/font/**"></mvc:resources>
-	<mvc:resources location="/assets/img/" mapping="/assets/img/**"></mvc:resources>
+	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
+	<mvc:resources location="/avatars/" mapping="/avatars/**"></mvc:resources>
+	<mvc:resources location="/font/" mapping="/font/**"></mvc:resources>
+	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
 	<dubbo:application name="oystergold-manager"/>
 	<dubbo:registry address="${zookeeper.ip}" protocol="zookeeper"></dubbo:registry>
 	<dubbo:reference interface="com.itoystergold.service.DemoUserService" id="demoUserService"></dubbo:reference>
