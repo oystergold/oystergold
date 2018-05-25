@@ -23,6 +23,7 @@ public class UserFacadeImpl implements UserFacade {
 		User user = new User();
 		
 		List<User> list = userService.queryUser(user);
+		OysterResponse<UserRespone> response = new OysterResponse<UserRespone> ();
 		return null;
 	}
 
