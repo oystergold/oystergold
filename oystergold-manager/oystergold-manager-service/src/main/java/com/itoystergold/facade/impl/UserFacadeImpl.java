@@ -24,18 +24,12 @@ public class UserFacadeImpl implements UserFacade {
 	
 	@Override
 	public OysterResponse<UserRespone> queryUser(UserRequest request) {
-		User user = new User();
 		
-		List<User> list = userService.queryUser(user);
-		List<UserPojo> users = new ArrayList<UserPojo>();
-		for (User user2 : list) {
-			UserPojo pojo = new UserPojo();
-			BeanUtils.copyProperties(user2, pojo);
-			users.add(pojo);
-		}
+		List<UserPojo> list = userService.queryUser(request);
+		
 		UserRespone respone = new UserRespone();
-		respone.setUsers(users);
-		return ResultUtils.getResponse(respone);
+		respone.setUsers(list);
+		return ResultUtils.getSuccessResponse(respone);
 	}
 
 }

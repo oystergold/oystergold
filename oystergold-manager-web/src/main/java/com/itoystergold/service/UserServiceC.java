@@ -1,6 +1,6 @@
 package com.itoystergold.service;
 
-import com.itoystergold.pojo.User;
+import com.itoystergold.ext.UserPojo;
 
 public interface UserServiceC {
 	
@@ -10,6 +10,6 @@ public interface UserServiceC {
 	 * @param password
 	 * @return
 	 */
-	User login(String username, String password);
+	UserPojo login(String username, String password);
 
 }

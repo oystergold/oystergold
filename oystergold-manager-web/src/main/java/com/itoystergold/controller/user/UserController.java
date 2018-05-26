@@ -1,10 +1,13 @@
 package com.itoystergold.controller.user;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.itoystergold.ext.UserPojo;
 import com.itoystergold.pojo.User;
 import com.itoystergold.service.UserServiceC;
 
@@ -15,20 +18,17 @@ public class UserController {
 	private UserServiceC userserviceC;
 	
 	@RequestMapping("tologin")
-	public String toLogin(String username,String password){
+	public String toLogin(String username,String password,HttpSession session){
 		if (StringUtils.isEmpty(username)||StringUtils.isEmpty(password)) {
 			return "login/login";
 		}
-		User user = userserviceC.login(username,password);
+		UserPojo user = userserviceC.login(username,password);
 		
+		session.setAttribute("user", user);
+		 
 		return "home/fmain";
 	}
 	
 	
-	@RequestMapping("/user")
-	public String selectUser() {
-		
-		/*System.out.println(demoUserService.selectUser());*/
-		return "index";
-	}
+	
 }
