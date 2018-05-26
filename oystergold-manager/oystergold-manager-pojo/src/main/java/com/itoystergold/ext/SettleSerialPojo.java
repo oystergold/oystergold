@@ -39,11 +39,22 @@ public class SettleSerialPojo implements Serializable {
 	 */
 	private String buy_name;
 	
-	
+	private String errMsg;
 	/**
 	 * 创建时间
 	 */
 	private Date creatTime;
+
+
+	
+	public String getErrMsg() {
+		return errMsg;
+	}
+
+
+	public void setErrMsg(String errMsg) {
+		this.errMsg = errMsg;
+	}
 
 
 	public String getSid() {

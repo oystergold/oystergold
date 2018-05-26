@@ -28,7 +28,9 @@ public class SettleSerialDaoImpl implements SettleSerialDao {
 		
 		AssetSettleSerialExample example = new AssetSettleSerialExample();
 		Criteria criteria = example.createCriteria();
-		
+		if (!StringUtils.isEmpty(serialId)) {
+			criteria.andSerialidEqualTo(serialId);
+		}
 		if (!StringUtils.isEmpty(status)) {
 			criteria.andHandlerStatusEqualTo(status);
 		}

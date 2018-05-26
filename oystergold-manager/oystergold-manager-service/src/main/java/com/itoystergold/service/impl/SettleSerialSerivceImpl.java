@@ -50,6 +50,7 @@ public class SettleSerialSerivceImpl implements SettleSerialSerivce {
 				amt = amt.add(order.getPayment());
 			}
 			pojo.setAmt(amt);
+			pojo.setErrMsg(assetSettleSerial.getErrmsg());
 			pojo.setOid(orders.get(0).getOrderId());
 			pojo.setBuy_name(orders.get(0).getBuyerName());
 			
@@ -59,7 +60,7 @@ public class SettleSerialSerivceImpl implements SettleSerialSerivce {
 		
 		page.setResults(serialPojos);
 		page.setPageNo((int)start);
-		page.setPageSize(pageInfo.getSize());
+		page.setPageSize(pageSize);
 		page.setTotalPage(pageInfo.getPages());
 		page.setTotalRecord((int)pageInfo.getTotal());
 		

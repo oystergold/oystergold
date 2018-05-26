@@ -28,8 +28,7 @@ public class SettleController {
 	
 	@RequestMapping("/settle_listResult2")
 	@ResponseBody
-	public EsayUIDatagridResult settle_listResult2(String serialId,String status,String buyName,Date beginTime,Date endTime,Model model,Integer page,Integer rows){
-		
+	public EsayUIDatagridResult settle_listResult2(String serialId,String status,String buyName,Date beginTime,Date endTime,Integer page,Integer rows){
 		
 		EsayUIDatagridResult result = settleServiceC.querySettleSerial(serialId,status,buyName,beginTime,endTime,page,rows);
 		 
