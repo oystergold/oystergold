@@ -2,7 +2,7 @@ package com.itoystergold.service;
 
 import com.itoystergold.pojo.User;
 
-public interface userService {
+public interface UserServiceC {
 	
 	/**
 	 * 登录

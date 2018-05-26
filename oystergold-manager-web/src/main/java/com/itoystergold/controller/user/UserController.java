@@ -6,20 +6,20 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itoystergold.pojo.User;
-import com.itoystergold.service.userService;
+import com.itoystergold.service.UserServiceC;
 
 @Controller
 public class UserController {
 	
 	@Autowired
-	private userService userservice;
+	private UserServiceC userserviceC;
 	
 	@RequestMapping("tologin")
 	public String toLogin(String username,String password){
 		if (StringUtils.isEmpty(username)||StringUtils.isEmpty(password)) {
 			return "login/login";
 		}
-		User user = userservice.login(username,password);
+		User user = userserviceC.login(username,password);
 		
 		return "home/fmain";
 	}

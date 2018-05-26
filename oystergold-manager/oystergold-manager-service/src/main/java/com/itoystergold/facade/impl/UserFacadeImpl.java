@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.itoystergold.common.OysterResponse;
 import com.itoystergold.ext.UserPojo;
 import com.itoystergold.facade.UserFacade;

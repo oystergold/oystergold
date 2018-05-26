@@ -3,9 +3,9 @@ package com.itoystergold.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.itoystergold.dao.UserDao;
 import com.itoystergold.pojo.User;
 import com.itoystergold.service.UserService;

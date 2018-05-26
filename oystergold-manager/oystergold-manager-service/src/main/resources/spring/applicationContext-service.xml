@@ -10,9 +10,9 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
     <context:property-placeholder location="classpath:properties/*.properties"/>
-	<context:component-scan base-package="com.itoystergold.service"/>
+	<context:component-scan base-package="com.itoystergold"/>
 	<dubbo:application name="oystergold-manager"/>
 	<dubbo:registry protocol="zookeeper" address="${zookeeper.ip}"></dubbo:registry>
 	<dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
-	<dubbo:service interface="com.itoystergold.service.DemoUserService" ref="demoUserServiceImpl" timeout="600000"></dubbo:service>
+	<dubbo:service interface="com.itoystergold.facade.UserFacade" ref="userFacadeImpl" timeout="600000"></dubbo:service>
 </beans>
