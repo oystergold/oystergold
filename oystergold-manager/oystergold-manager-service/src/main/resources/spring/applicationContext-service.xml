@@ -17,4 +17,7 @@
 	<dubbo:service interface="com.itoystergold.facade.UserFacade" ref="userFacadeImpl" timeout="600000"></dubbo:service>
 	<dubbo:service interface="com.itoystergold.facade.SettleFacade" ref="settleFacadeImpl" timeout="600000"></dubbo:service>
 	<dubbo:service interface="com.itoystergold.facade.VipuserFacade" ref="vipuserFacadeImpl" timeout="600000"></dubbo:service>
+	<dubbo:service interface="com.itoystergold.facade.ItemFacade" ref="itemFacadeImpl" timeout="600000"></dubbo:service>
+	
+
 </beans>

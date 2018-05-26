@@ -44,4 +44,6 @@
 	<dubbo:registry address="${zookeeper.ip}" protocol="zookeeper"></dubbo:registry>
 	<dubbo:reference interface="com.itoystergold.facade.UserFacade" id="userFacade"></dubbo:reference>
 	<dubbo:reference interface="com.itoystergold.facade.SettleFacade" id="settleFacade"></dubbo:reference>
+	
+	<dubbo:reference interface="com.itoystergold.facade.ItemFacade" id="itemFacade"></dubbo:reference>
 </beans>
