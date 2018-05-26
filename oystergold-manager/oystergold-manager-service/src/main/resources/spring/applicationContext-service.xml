@@ -15,4 +15,5 @@
 	<dubbo:registry protocol="zookeeper" address="${zookeeper.ip}"></dubbo:registry>
 	<dubbo:protocol name="dubbo" port="20881"></dubbo:protocol>
 	<dubbo:service interface="com.itoystergold.facade.UserFacade" ref="userFacadeImpl" timeout="600000"></dubbo:service>
+	<dubbo:service interface="com.itoystergold.facade.SettleFacade" ref="settleFacadeImpl" timeout="600000"></dubbo:service>
 </beans>

@@ -3,12 +3,14 @@ package com.itoystergold.dao.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.itoystergold.dao.VipuserInfoDao;
 import com.itoystergold.mapper.VipuserInfoMapper;
 import com.itoystergold.pojo.VipuserInfo;
 import com.itoystergold.pojo.VipuserInfoExample;
 
+@Repository
 public class VipuserInfoDaoImpl implements VipuserInfoDao{
 
 	@Autowired

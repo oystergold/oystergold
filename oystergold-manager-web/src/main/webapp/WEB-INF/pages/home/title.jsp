@@ -219,7 +219,7 @@
 
     <span id="topmenu" onclick="toModule('home');">系统首页</span><span id="tm_separator"></span>
 	<span id="topmenu" onclick="toModule('vipuser');">会员中心</span><span id="tm_separator"></span>
-	<span id="topmenu" onclick="toModule('stat');">统计分析</span><span id="tm_separator"></span>
+	<span id="topmenu" onclick="toModule('settlecenter');">结算中心</span><span id="tm_separator"></span>
 	<span id="topmenu" onclick="toModule('baseinfo');">基础信息</span><span id="tm_separator"></span>
 	<span id="topmenu" onclick="toModule('sysadmin');">系统管理</span>
 
