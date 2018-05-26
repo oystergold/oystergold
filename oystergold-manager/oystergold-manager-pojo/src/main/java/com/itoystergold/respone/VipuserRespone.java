@@ -13,6 +13,8 @@ public class VipuserRespone implements Serializable{
 	private static final long serialVersionUID = -7863805756473934421L;
 
     private	List<VipuserPojo> vipusers ;
+    
+    private VipuserPojo vipuserPojo;
 
 	public List<VipuserPojo> getVipusers() {
 		return vipusers;
@@ -21,4 +23,13 @@ public class VipuserRespone implements Serializable{
 	public void setvipusers(List<VipuserPojo> vipusers) {
 		this.vipusers = vipusers;
 	}
+
+	public VipuserPojo getVipuserPojo() {
+		return vipuserPojo;
+	}
+
+	public void setVipuserPojo(VipuserPojo vipuserPojo) {
+		this.vipuserPojo = vipuserPojo;
+	}
+	
 }

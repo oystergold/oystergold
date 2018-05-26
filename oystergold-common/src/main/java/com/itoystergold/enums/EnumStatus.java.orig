@@ -6,9 +6,9 @@
 package com.itoystergold.enums;
 
 public enum EnumStatus {
-    CHULIZHONG("0", "处理�),
-    SUCCSESS("1", "成功"),
-    FALSE("2", "失败");
+
+    NO("0", "未激活"),
+    YES("1", "已激活");
 
     private String code;
     private String description;

@@ -6,9 +6,9 @@ import com.itoystergold.respone.VipuserRespone;
 
 public interface VipuserFacade {
 	
-	OysterResponse<VipuserRespone> deleteVipuser(VipuserRequest request);
+	OysterResponse<Void> deleteVipuser(VipuserRequest request);
 
-	OysterResponse<VipuserRespone> saveOrUpdateVipuser(VipuserRequest request);
+	OysterResponse<Void> saveOrUpdateVipuser(VipuserRequest request);
 
 	OysterResponse<VipuserRespone> selectVipusers(VipuserRequest request);
 

@@ -22,9 +22,9 @@ public class UserController {
 		if (StringUtils.isEmpty(username)||StringUtils.isEmpty(password)) {
 			return "login/login";
 		}
-		UserPojo user = userserviceC.login(username,password);
+/*		UserPojo user = userserviceC.login(username,password);
 		
-		session.setAttribute("user", user);
+		session.setAttribute("user", user);*/
 		 
 		return "home/fmain";
 	}

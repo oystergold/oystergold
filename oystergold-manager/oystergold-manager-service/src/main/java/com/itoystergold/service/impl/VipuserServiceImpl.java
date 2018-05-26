@@ -1,16 +1,20 @@
 package com.itoystergold.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import com.itoystergold.common.OysterResponse;
 import com.itoystergold.dao.VipuserDao;
 import com.itoystergold.dao.VipuserInfoDao;
+import com.itoystergold.ext.VipuserPojo;
 import com.itoystergold.pojo.Vipuser;
 import com.itoystergold.pojo.VipuserInfo;
 import com.itoystergold.request.VipuserRequest;
@@ -29,17 +33,16 @@ public class VipuserServiceImpl implements VipuserService {
 
 	@Transactional
 	@Override
-	public OysterResponse<VipuserRespone> deleteVipuser(VipuserRequest request) {
+	public void deleteVipuser(VipuserRequest request) {
 		
 		String vid = request.getVid();
 		vipuserDao.deleteByPrimaryKey(vid);
 		vipuserInfoDao.deleteByPrimaryKey(vid);
-		return null;
 	}
 
 	@Transactional
 	@Override
-	public OysterResponse<VipuserRespone> saveOrUpdateVipuser(VipuserRequest request) {
+	public void saveOrUpdateVipuser(VipuserRequest request) {
 
 		String vid = request.getVid();
 		Vipuser vipuser = new Vipuser();
@@ -69,19 +72,41 @@ public class VipuserServiceImpl implements VipuserService {
 			vipuserInfoDao.updateByPrimaryKeySelective(vipuserInfo);
 		}
 		
-		return null;
 	}
 
 	@Override
-	public OysterResponse<VipuserRespone> selectVipusers(VipuserRequest request) {
+	public List<VipuserPojo> selectVipusers(VipuserRequest request) {
 
-		return null;
+		List<Vipuser> vipusers = vipuserDao.selectByExample(request.getVname(), request.getVtelephone(), request.getVlevel(), request.getVstatus());
+		List<VipuserPojo> vipuserPojos = new ArrayList<>();
+		if(!CollectionUtils.isEmpty(vipusers)) {
+			
+			for (Vipuser vipuser : vipusers) {
+				VipuserPojo vipuserPojo = new VipuserPojo();
+				String vid = vipuser.getVid();
+				VipuserInfo vipuserInfo = vipuserInfoDao.selectByPrimaryKey(vid);
+				BeanUtils.copyProperties(vipuserInfo, vipuserPojo);
+				BeanUtils.copyProperties(vipuser, vipuserPojo);
+				vipuserPojo.setInfoUpdatetime(vipuserInfo.getUpdatetime());
+				vipuserPojo.setInfoCreatetime(vipuserInfo.getCreatetime());
+				vipuserPojos.add(vipuserPojo);
+			}
+		}
+		return vipuserPojos;
 	}
 
 	@Override
-	public OysterResponse<VipuserRespone> selectVipuserById(VipuserRequest request) {
+	public VipuserPojo selectVipuserById(VipuserRequest request) {
 
-		return null;
+		String vid = request.getVid();
+		VipuserPojo vipuserPojo = new VipuserPojo();
+		Vipuser vipuser = vipuserDao.selectByPrimaryKey(vid);
+		VipuserInfo vipuserInfo = vipuserInfoDao.selectByPrimaryKey(vid);
+		BeanUtils.copyProperties(vipuserInfo, vipuserPojo);
+		BeanUtils.copyProperties(vipuser, vipuserPojo);
+		vipuserPojo.setInfoUpdatetime(vipuserInfo.getUpdatetime());
+		vipuserPojo.setInfoCreatetime(vipuserInfo.getCreatetime());
+		return vipuserPojo;
 	}
 
 }

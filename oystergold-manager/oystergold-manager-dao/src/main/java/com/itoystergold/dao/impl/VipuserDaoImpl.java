@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import com.itoystergold.dao.VipuserDao;
 import com.itoystergold.mapper.VipuserMapper;
 import com.itoystergold.pojo.Vipuser;
 import com.itoystergold.pojo.VipuserExample;
+import com.itoystergold.pojo.VipuserExample.Criteria;
 
 @Repository
 public class VipuserDaoImpl implements VipuserDao{
@@ -52,7 +54,28 @@ public class VipuserDaoImpl implements VipuserDao{
 	public List<Vipuser> selectByExample(String vname, String phoneNo, String vlevel, String vstatus) {
 
 		VipuserExample vipuserExample = new VipuserExample();
-		vipuserExample.createCriteria().andVnameEqualTo(vname).andVtelephoneEqualTo(phoneNo).andVlevelEqualTo(vlevel).andVstatusEqualTo(vstatus);
+		Criteria criteria = vipuserExample.createCriteria();
+		
+		if(!StringUtils.isEmpty(vname)) {
+			
+			criteria.andVnameEqualTo(vname);
+		}
+		
+		if(!StringUtils.isEmpty(phoneNo)) {
+			
+			criteria.andVtelephoneEqualTo(phoneNo);
+		}
+		
+		if(!StringUtils.isEmpty(vlevel)) {
+			
+			criteria.andVlevelEqualTo(vlevel);
+		}
+		
+		if(!StringUtils.isEmpty(vstatus)) {
+			
+			criteria.andVstatusEqualTo(vstatus);
+		}
+		
 		try {
 			return	vipuserMapper.selectByExample(vipuserExample);
 		} catch (Exception e) {

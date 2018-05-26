@@ -24,10 +24,11 @@
         <div class="panel-content">
 		 
 		<ul>
-			<li><a href="${ctx}/sysadmin/vipuserAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">查看会员</a></li>
-			<li><a href="${ctx}/sysadmin/vipPackageAmtAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">会员钱包</a></li>
-			<li><a href="${ctx}/sysadmin/vipuserRelationAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">会员关系圈</a></li>
-			<li><a href="${ctx}/sysadmin/moduleAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">股权管理</a></li>
+			<li><a href="${ctx}/vipuser/VipuserAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">查看会员</a></li>
+			<li><a href="${ctx}/vipuser/NoActiveVipuserAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">查看未激活会员</a></li>
+			<li><a href="${ctx}/vipuser/VipPackageAmtAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">会员钱包</a></li>
+			<li><a href="${ctx}/vipuser/VipuserRelationAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">会员关系圈</a></li>
+			<li><a href="${ctx}/vipuser/AssetStockAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">股权管理</a></li>
 		</ul>  
 		<%-- 入动态的菜单生成--%> 
 			<%@include file="../leftmenu.jsp" %>
