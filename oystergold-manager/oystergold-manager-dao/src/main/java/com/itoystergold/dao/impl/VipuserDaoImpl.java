@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
+import com.github.pagehelper.PageInfo;
 import com.itoystergold.dao.VipuserDao;
 import com.itoystergold.mapper.VipuserMapper;
+import com.itoystergold.pojo.AssetSettleSerial;
 import com.itoystergold.pojo.Vipuser;
 import com.itoystergold.pojo.VipuserExample;
 import com.itoystergold.pojo.VipuserExample.Criteria;
@@ -51,7 +53,7 @@ public class VipuserDaoImpl implements VipuserDao{
 	}
 
 	@Override
-	public List<Vipuser> selectByExample(String vname, String phoneNo, String vlevel, String vstatus) {
+	public PageInfo<Vipuser> selectByExample(String vname, String phoneNo, String vlevel, String vstatus,Integer start,Integer pagesize) {
 
 		VipuserExample vipuserExample = new VipuserExample();
 		Criteria criteria = vipuserExample.createCriteria();
@@ -77,7 +79,9 @@ public class VipuserDaoImpl implements VipuserDao{
 		}
 		
 		try {
-			return	vipuserMapper.selectByExample(vipuserExample);
+			List<Vipuser> vipusers = vipuserMapper.selectByExample(vipuserExample);
+			PageInfo<Vipuser> pageInfo = new PageInfo<>(vipusers);
+			return	pageInfo;
 		} catch (Exception e) {
 			throw new RuntimeException("数据库查询会员列表失败");
 		}

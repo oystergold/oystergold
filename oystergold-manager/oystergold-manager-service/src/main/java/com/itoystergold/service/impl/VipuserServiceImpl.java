@@ -11,15 +11,17 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import com.itoystergold.common.OysterResponse;
+import com.github.pagehelper.PageInfo;
+import com.itoystergold.common.OysterPageRequest;
 import com.itoystergold.dao.VipuserDao;
 import com.itoystergold.dao.VipuserInfoDao;
+import com.itoystergold.ext.SettleSerialPojo;
 import com.itoystergold.ext.VipuserPojo;
 import com.itoystergold.pojo.Vipuser;
 import com.itoystergold.pojo.VipuserInfo;
 import com.itoystergold.request.VipuserRequest;
-import com.itoystergold.respone.VipuserRespone;
 import com.itoystergold.service.VipuserService;
+import com.itoystergold.utils.Page;
 import com.itoystergold.utils.UUIDUtil;
 
 @Service
@@ -75,9 +77,13 @@ public class VipuserServiceImpl implements VipuserService {
 	}
 
 	@Override
-	public List<VipuserPojo> selectVipusers(VipuserRequest request) {
-
-		List<Vipuser> vipusers = vipuserDao.selectByExample(request.getVname(), request.getVtelephone(), request.getVlevel(), request.getVstatus());
+	public Page<VipuserPojo> selectVipusers(OysterPageRequest pageRequest,VipuserRequest request) {
+		
+		int start = (int)pageRequest.getStart();
+		int pageSize = pageRequest.getPageSize();
+		
+		PageInfo<Vipuser> pageInfo = vipuserDao.selectByExample(request.getVname(), request.getVtelephone(), request.getVlevel(), request.getVstatus(),start,pageSize);
+		List<Vipuser> vipusers = pageInfo.getList();
 		List<VipuserPojo> vipuserPojos = new ArrayList<>();
 		if(!CollectionUtils.isEmpty(vipusers)) {
 			
@@ -92,7 +98,16 @@ public class VipuserServiceImpl implements VipuserService {
 				vipuserPojos.add(vipuserPojo);
 			}
 		}
-		return vipuserPojos;
+		
+		Page< VipuserPojo> page = new Page<>();
+		
+		page.setResults(vipuserPojos);
+		page.setPageNo(start);
+		page.setPageSize(pageSize);
+		page.setTotalPage(pageInfo.getPages());
+		page.setTotalRecord((int)pageInfo.getTotal());
+		
+		return page;
 	}
 
 	@Override

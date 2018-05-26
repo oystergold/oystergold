@@ -5,13 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itoystergold.common.OysterPageRequest;
+import com.itoystergold.common.OysterPageResponse;
 import com.itoystergold.common.OysterResponse;
 import com.itoystergold.ext.VipuserPojo;
 import com.itoystergold.facade.VipuserFacade;
 import com.itoystergold.request.VipuserRequest;
+import com.itoystergold.respone.SettleSerialRespone;
 import com.itoystergold.respone.VipuserRespone;
 import com.itoystergold.service.VipuserService;
 import com.itoystergold.utils.CollectionUtils;
+import com.itoystergold.utils.Page;
 import com.itoystergold.utils.ResultUtils;
 
 @Service
@@ -35,18 +39,14 @@ public class VipuserFacadeImpl implements VipuserFacade {
 	}
 
 	@Override
-	public OysterResponse<VipuserRespone> selectVipusers(VipuserRequest request) {
+	public OysterPageResponse<VipuserRespone> selectVipusers(OysterPageRequest pageRequest,VipuserRequest request) {
 		
-		List<VipuserPojo> vipusers = vipuserService.selectVipusers(request);
+		Page<VipuserPojo> page = vipuserService.selectVipusers(pageRequest,request);
+		 VipuserRespone respone = new VipuserRespone();
+		 respone.setvipusers(page.getResults());
+		 pageRequest.setTotalCount(page.getTotalRecord());
 		
-		VipuserRespone respone = null;
-		
-		if(!CollectionUtils.isEmpty(vipusers)) {
-			respone = new VipuserRespone();
-			respone.setvipusers(vipusers);
-			return ResultUtils.getSuccessResponse(respone);
-		}
-		return ResultUtils.getSuccessResponse(respone);
+		return ResultUtils.getSuccessPageResponse(respone, pageRequest);
 	}
 
 	@Override

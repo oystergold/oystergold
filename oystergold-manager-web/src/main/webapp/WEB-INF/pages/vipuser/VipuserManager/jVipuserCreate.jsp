@@ -30,6 +30,17 @@
 	        <tr>
 	        	<td class="columnTitle">真实姓名：</td>
 	        	<td class="tableContent"><input type="text" name="vname" value="" style="width:300px"/></td>
+	        	<td class="columnTitle">推荐人姓名：</td>
+	        	<td class="tableContent"><input type="text" name="parentName" value="" style="width:300px"/></td>
+	        	<td class="columnTitle">用户名：</td>
+	        	<td class="tableContent"><input type="text" name="vusername" value="" style="width:300px"/></td>
+	        	<td class="columnTitle">电话号码：</td>
+	        	<td class="tableContent"><input type="text" name="vtelephone" value="" style="width:300px"/></td>
+	        	<td class="columnTitle">密  码：</td>
+	        	<td class="tableContent"><input type="text" name="vpassword" value="" style="width:300px"/></td>
+	        	<td class="columnTitle">状态码：</td>
+	        	<td class="tableContent"><input type="text" name="vstatus" value="" style="width:300px"/></td>
+	        	
 	            <td class="columnTitle">上级部门：</td>
 	            <td class="tableContent">
 	            	<input id="deptcombobox_comboboxID" class="easyui-combobox" name="deptP.deptId"   

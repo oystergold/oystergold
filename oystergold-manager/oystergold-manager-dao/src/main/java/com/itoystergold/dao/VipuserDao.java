@@ -2,6 +2,7 @@ package com.itoystergold.dao;
 
 import java.util.List;
 
+import com.github.pagehelper.PageInfo;
 import com.itoystergold.pojo.Vipuser;
 
 public interface VipuserDao {
@@ -12,7 +13,7 @@ public interface VipuserDao {
 
     int insertSelective(Vipuser record);
 
-    List<Vipuser> selectByExample(String vname,String phoneNo,String vlevel,String vstatus);
+    PageInfo<Vipuser> selectByExample(String vname,String phoneNo,String vlevel,String vstatus,Integer start,Integer pagesize);
 
     Vipuser selectByPrimaryKey(String vid);
 
