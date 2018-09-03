@@ -26,7 +26,8 @@ public class VipuserDaoImpl implements VipuserDao{
 		VipuserExample vipuserExample = new VipuserExample();
 		
 		try {
-			return	vipuserMapper.countByExample(vipuserExample);
+			int count = (int) vipuserMapper.countByExample(vipuserExample);
+			return	count;
 		} catch (Exception e) {
 			throw new RuntimeException("数据库查询会员信息记录数失败");
 		}

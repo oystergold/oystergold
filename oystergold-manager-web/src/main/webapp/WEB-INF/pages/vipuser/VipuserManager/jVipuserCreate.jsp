@@ -40,6 +40,55 @@
 	        	<td class="tableContent"><input type="text" name="vpassword" value="" style="width:300px"/></td>
 	        	<td class="columnTitle">状态码：</td>
 	        	<td class="tableContent"><input type="text" name="vstatus" value="" style="width:300px"/></td>
+	        	<td class="columnTitle">用户地址：</td>
+	        	<td class="tableContent"><input type="text" name="vstatus" value="" style="width:300px"/></td>
+	        	
+	        	<td class="columnTitle">省份</td>
+	        	<td class="tableContent">	            	
+	        		<input id="deptcombobox_comboboxID" class="easyui-combobox" name="deptP.deptId"   
+    				style="width:300px"
+    				data-options="editable:false,valueField:'deptId',textField:'deptName',
+    				url:'${ctx}/vipuser/deptAction_ajaxAllDept'" />
+    			</td>
+	        	<td class="columnTitle">所在城市</td>
+	        	<td class="tableContent">
+	        		<input id="deptcombobox_comboboxID" class="easyui-combobox" name="deptP.deptId"   
+    				style="width:300px"
+    				data-options="editable:false,valueField:'deptId',textField:'deptName',
+    				url:'${ctx}/sysadmin/deptAction_ajaxAllDept'" />
+	        	</td>
+	        	<td class="columnTitle">所在地区</td>
+	        	<td class="tableContent">
+	        		<input id="deptcombobox_comboboxID" class="easyui-combobox" name="deptP.deptId"   
+    				style="width:300px"
+    				data-options="editable:false,valueField:'deptId',textField:'deptName',
+    				url:'${ctx}/sysadmin/deptAction_ajaxAllDept'" />
+	        	</td>
+	        	
+	        	<td class="columnTitle">银行卡信息：</td>
+	        	<td class="tableContent"><input type="text" name="vstatus" value="" style="width:300px"/></td>
+	        	
+	        	<td class="columnTitle">省份</td>
+	        	<td class="tableContent">	            	
+	        		<input id="deptcombobox_comboboxID" class="easyui-combobox" name="deptP.deptId"   
+    				style="width:300px"
+    				data-options="editable:false,valueField:'deptId',textField:'deptName',
+    				url:'${ctx}/vipuser/deptAction_ajaxAllDept'" />
+    			</td>
+	        	<td class="columnTitle">所在城市</td>
+	        	<td class="tableContent">
+	        		<input id="deptcombobox_comboboxID" class="easyui-combobox" name="deptP.deptId"   
+    				style="width:300px"
+    				data-options="editable:false,valueField:'deptId',textField:'deptName',
+    				url:'${ctx}/sysadmin/deptAction_ajaxAllDept'" />
+	        	</td>
+	        	<td class="columnTitle">所在地区</td>
+	        	<td class="tableContent">
+	        		<input id="deptcombobox_comboboxID" class="easyui-combobox" name="deptP.deptId"   
+    				style="width:300px"
+    				data-options="editable:false,valueField:'deptId',textField:'deptName',
+    				url:'${ctx}/sysadmin/deptAction_ajaxAllDept'" />
+	        	</td>
 	        	
 	            <td class="columnTitle">上级部门：</td>
 	            <td class="tableContent">
